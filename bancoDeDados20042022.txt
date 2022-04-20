@@ -1,0 +1,138 @@
+/*Crie um banco de dados para um serviço de RH de uma empresa, onde o sistema trabalhará com as informações dos colaboradores desta empresa. 
+Crie uma tabela de colaboradores e determine 5 atributos relevantes dos colaboradores para se trabalhar com o serviço deste RH.
+Insira nesta tabela no mínimo 5 dados (registros).
+Faça um SELECT que retorne todes os colaboradores com o salário maior do que 2000.
+Faça um SELECT que retorne todes os colaboradores com o salário menor do que 2000.
+
+---------resolução atividade 1----------*/ 
+
+CREATE DATABASE db_recursos_humanos;
+ USE db_recursos_humanos;
+ 
+CREATE TABLE  tb_rh(
+	id BIGINT AUTO_INCREMENT,
+	nome VARCHAR(255),
+	setor VARCHAR(255),
+    funcao VARCHAR(255),
+    salario DOUBLE,
+   
+   PRIMARY KEY (id)
+); 
+	INSERT INTO tb_rh (nome, setor, funcao, salario)
+    VALUES("Wesley","TI","Desenvolvedor Jr",2500.56);
+    
+    INSERT INTO tb_rh (nome, setor, funcao, salario)
+    VALUES("Caique","RH","Gestora",4600.45);
+    
+    INSERT INTO tb_rh (nome, setor, funcao, salario)
+    VALUES("Rosa","Marketing","Analista",7500.99);
+    
+    INSERT INTO tb_rh (nome, setor, funcao, salario)
+    VALUES("Roger","Marketing","Designer",5200.06);
+    
+    INSERT INTO tb_rh (nome, setor, funcao, salario)
+    VALUES("Ricardo","Adiministração","Gerente",12500.77);
+    
+    SELECT * FROM tb_rh WHERE salario > 2000;
+    
+    SELECT * FROM tb_rh WHERE salario < 2000;
+    
+    update tb_rh set salario = 1500.50 where id = 1;
+
+
+/*/////////////////////////////////////////////////////////////
+
+Crie um banco de dados para um e-commerce, onde o sistema trabalhará com as informações dos produtos deste e-commerce. 
+Crie uma tabela de produtos e determine 5 atributos relevantes dos produtos para se trabalhar com o serviço deste e-commerce.
+Insira nesta tabela no mínimo 8 dados (registros).
+Faça um SELECT que retorne todes os produtos com o valor maior do que 500.
+Faça um SELECT que retorne todes os produtos com o valor menor do que 500.
+------------resolução atividade 2-----------*/
+CREATE DATABASE db_ecomerce;
+USE db_ecomerce;
+	CREATE TABLE tb_produtos(
+		id BIGINT AUTO_INCREMENT,
+    		tipo VARCHAR(25),
+    		marca VARCHAR(25),
+    		valor DOUBLE,
+    		estoque int,
+    
+   		 PRIMARY KEY (id)
+	);
+
+	INSERT INTO tb_produtos (tipo,marca,valor,estoque)
+    	VALUES("Tennis", "Nike", 389.90,80);
+
+	INSERT INTO tb_produtos (tipo,marca,valor,estoque)
+    	VALUES("Blusa","Puma",190.56, 27);
+    
+	INSERT INTO tb_produtos (tipo,marca,valor,estoque)
+    	VALUES("Calça","Levis",519.90,4 );
+
+	INSERT INTO tb_produtos (tipo,marca,valor,estoque)
+    	VALUES("Jaqueta","Gucci",1200.68,7);
+
+	INSERT INTO tb_produtos (tipo,marca,valor,estoque)
+    	VALUES("Chinelo","Havaianas",37.89,60);
+
+	INSERT INTO tb_produtos (tipo,marca,valor,estoque)
+    	VALUES("Tennis","Mizuno",1599.99,12);
+
+	INSERT INTO tb_produtos (tipo,marca,valor,estoque)
+    	VALUES("Bolsa","Armany",2999.99,3);
+
+	INSERT INTO tb_produtos (tipo,marca,valor,estoque)
+    	VALUES("Bermuda","Oakley",79.89,15);
+ 
+ SELECT * FROM tb_produtos;
+
+ SELECT * FROM tb_produtos WHERE valor > 500;
+    
+ SELECT * FROM tb_produtos WHERE valor < 500;
+
+
+/*/////////////////////////////////////////
+
+Crie um banco de dados para um registro de uma escola, onde o sistema trabalhará com as informações dos estudantes deste registro dessa escola. 
+Crie uma tabela estudantes e utilizando a habilidade de abstração e determine 5 atributos relevantes dos estudantes para se trabalhar com o serviço dessa escola.
+Insira nesta tabela no mínimo 8 dados (registros).
+Faça um SELECT que retorne todes o/a(s) estudantes com a nota maior do que 7.0.
+Faça um SELECT que retorne todes o/a(s) estudantes com a nota menor do que 7.0.
+
+----------Resolução atividade 3 ------------*/
+
+CREATE DATABASE db_escola;
+	USE db_escola;
+	
+    CREATE TABLE tb_ensino(
+	id BIGINT AUTO_INCREMENT,
+    nome VARCHAR(50),
+    serie VARCHAR(15),
+    diciplina VARCHAR(20),
+    nota DOUBLE,
+    PRIMARY KEY(id)
+);
+	INSERT INTO tb_ensino (nome,serie,diciplina,nota)
+    VALUES("Fernando","8°ano","Matematica",7.0);
+    INSERT INTO tb_ensino (nome,serie,diciplina,nota)
+    VALUES("Julia","8°ano","Matematica",9.0);
+    INSERT INTO tb_ensino (nome,serie,diciplina,nota)
+    VALUES("Rafael","8°ano","Matematica",4.0);
+    INSERT INTO tb_ensino (nome,serie,diciplina,nota)
+    VALUES("David","8°ano","Matematica",3.0);
+    INSERT INTO tb_ensino (nome,serie,diciplina,nota)
+    VALUES("Olivia","8°ano","Matematica",9.5);
+    INSERT INTO tb_ensino (nome,serie,diciplina,nota)
+    VALUES("Igor","8°ano","Matematica",10.0);
+    INSERT INTO tb_ensino (nome,serie,diciplina,nota)
+    VALUES("Ana","8°ano","Matematica",8.0);
+    INSERT INTO tb_ensino (nome,serie,diciplina,nota)
+    VALUES("Carol","8°ano","Matematica",6.0);
+    
+    SELECT * FROM tb_ensino;
+    SELECT * FROM tb_ensino WHERE nota >= 7;
+    SELECT * FROM tb_ensino WHERE nota < 7;
+    
+
+
+
