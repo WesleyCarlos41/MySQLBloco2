@@ -1,0 +1,53 @@
+/*Crie um banco de dados para um serviço de uma quitanda, onde o sistema trabalhará com as informações dos produtos desta empresa. 
+Crie uma tabela de produtos e determine 5 atributos relevantes para se trabalhar com o serviço desta quitanda.
+Crie uma tabela de categorias para esses produtos.
+Faça o relacionamento de categorias na tabela de produto através da foreign key (id_categoria)
+Insira nestas tabelas no mínimo 5 dados (registros).
+Faça um SELECT que retorne todos os produtos.
+Faça um SELECT que retorne todas as categorias.
+Faça um SELECT que retorne todas as com o valor maior do que 50.
+Faça um SELECT que retorne todos os produtos que contém a letra %a%.
+*/
+
+
+
+CREATE DATABASE db_quitanda;
+USE db_quitanda;
+ CREATE TABLE tb_categoria(
+    id BIGINT AUTO_INCREMENT,
+    tipo VARCHAR(20),
+    ativo BOOLEAN,
+   PRIMARY KEY (id)
+    );
+	INSERT INTO tb_categoria (tipo,ativo)VALUES("Fruta",true);
+    INSERT INTO tb_categoria (tipo,ativo)VALUES("Legume",true);
+    INSERT INTO tb_categoria (tipo,ativo)VALUES("Verdura",true);
+    INSERT INTO tb_categoria (tipo,ativo)VALUES("Mercearia",true);
+    INSERT INTO tb_categoria (tipo,ativo)VALUES("Carnes",true);
+	SELECT * FROM tb_categoria;
+CREATE TABLE tb_produtos(
+	id BIGINT AUTO_INCREMENT,
+    nome VARCHAR(30) NOT NULL,
+    preco DOUBLE NOt NULL,
+    estoque INT,
+    perecivel BOOLEAN NOT NULL,
+    categoria_id BIGINT,
+    PRIMARY KEY (id),
+     FOREIGN KEY (categoria_id) REFERENCES tb_categoria(id)
+);
+	INSERT INTO tb_produtos (nome,preco,estoque,perecivel,categoria_id)
+    VALUES ("Manga", 4.99, 50, true,1);
+    INSERT INTO tb_produtos (nome,preco,estoque,perecivel,categoria_id)
+    VALUES ("Cebola", 6.69, 150, true,2);
+    INSERT INTO tb_produtos (nome,preco,estoque,perecivel,categoria_id)
+    VALUES ("Arroz", 16.99, 500, false,4);
+    INSERT INTO tb_produtos (nome,preco,estoque,perecivel,categoria_id)
+    VALUES ("Fejão", 7.49, 80, false,4);
+    INSERT INTO tb_produtos (nome,preco,estoque,perecivel,categoria_id)
+    VALUES ("Bife Ancho", 67.99, 100, true,5);
+    SELECT * FROM tb_produtos;
+    
+    SELECT * FROM tb_produtos WHERE preco > 50.00;
+    SELECT * FROM tb_produtos WHERE nome LIKE "%a%";
+    
+    SELECT * FROM tb_produtos INNER JOIN tb_categoria on  tb_categoria.id = tb_produtos.categoria_id;
